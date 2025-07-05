@@ -1,0 +1,35 @@
+{
+    "resources": [
+      {
+        "id": 1,
+        "title": "Dua & Zikr (Hisnul Muslim) App",
+        "writer": "Greentech Apps Foundation",
+        "driveLink": "https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn"
+      },
+      {
+        "id": 2,
+        "title": "Al Quran (Tafsir & by Word)",
+        "writer": "Greentech Apps Foundation",
+        "driveLink": "https://play.google.com/store/apps/details?id=com.greentech.quran"
+      },
+      {
+        "id": 3,
+        "title": "Riyad-us-Salihin",
+        "writer": "Tawhid Publications",
+        "driveLink": "https://drive.google.com/file/d/17loZEN6yFUy2GCER82-T6G7fipErv8WF/view?usp=sharing"
+      },
+      {
+        "id": 4,
+        "title": "Seerat-ur-Rasool",
+        "writer": "Prof Dr. Muhammad Asadullah Al Ghalib",
+        "driveLink": "https://drive.google.com/file/d/1Q-WlA2RHB3QlvvJYbOF1oUiC0XXQgXq-/view?usp=sharing"
+      },
+      {
+        "id": 5,
+        "title": "Ar-Raheeq Al-Makhtum",
+        "writer": "Safiur Rahman Mubarakpuri",
+        "driveLink": "https://drive.google.com/file/d/1XifFuG70wqgov-8qNCZZhQ527_lI_7sL/view?usp=sharing"
+      }
+    ]
+  }
+  

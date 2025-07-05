@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕊️ Towards Eternity - Islamic Learning Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="main-title">🕊️ Towards Eternity</h1>
+            <p class="subtitle">Bi-weekly Islamic learning journal — track classes and access resources.</p>
+            <div class="motto">
+                <p class="arabic-text">رَّبِّ زِدْنِيْ عِلْمًا</p>
+                <p class="translation">"Rabbi Zidni Ilma" - My Lord, increase me in knowledge</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Resources Section -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h2>Resources</h2>
+                </div>
+                <div id="resources-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading resources...</p>
+                </div>
+                <div id="resources-grid" class="resources-grid"></div>
+                <div id="resources-empty" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📚</div>
+                    <p>No resources found.</p>
+                </div>
+            </section>
+
+            <!-- Class Records Section -->
+            <section class="class-records-section">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <i class="fas fa-file-audio"></i>
+                    </div>
+                    <h2>Class Records</h2>
+                </div>
+                <div id="records-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading class records...</p>
+                </div>
+                <div id="class-records" class="class-records"></div>
+                <div id="records-empty" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📚</div>
+                    <p>No class records found.</p>
+                </div>
+                <div id="pagination" class="pagination" style="display: none;"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Class Lecture Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

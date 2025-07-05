@@ -1,0 +1,70 @@
+{
+    "classRecords": [
+      {
+        "id": 1,
+        "date": "2025-04-24",
+        "classType": "Daily Activity",
+        "homework": "হিস্নুল মুসলিম বই থেকে প্রতিদিন লাগে এরকম দুয়া শিখা অর্থ সহ, ফজর দিয়ে দিন শুরু করা, কুরাআন পরতে চেষ্টা করা, তাড়াতাড়ি ঘুমানো - তাড়াতাড়ি উঠা, সকালে রাতে কমপক্ষে ২ ঘণ্টা জ্ঞান অর্জনের জন্য চেষ্টা করা",
+        "audioLink": "N/A",
+        "summary": "আমাদের সারাদিন কেমন হওয়া উচিত তার সংক্ষিপ্ত ধারনা, সোশ্যাল সাইটে - উপকারি জ্ঞান এর সাথে জড়িত থাকা, সুরা আল ফীল এর সংক্ষিপ্ত আলোচনা"
+      },
+      {
+        "id": 2,
+        "date": "2025-05-01",
+        "classType": "Seerat",
+        "homework": "--",
+        "audioLink": "N/A",
+        "summary": "First class on seerat, class approach, books recommendation"
+      },
+      {
+        "id": 3,
+        "date": "2025-05-08",
+        "classType": "Daily Activity",
+        "homework": "Memorize 1 hadith with meaning, Reciting Ayat-ul-kursi, Reading Istegfar",
+        "audioLink": "N/A",
+        "summary": "Discussion on Hadith"
+      },
+      {
+        "id": 4,
+        "date": "2025-05-16",
+        "classType": "Seerat",
+        "homework": "Page 23-30 from Serat-ur-Rasool",
+        "audioLink": "https://drive.google.com/file/d/1RRpRlPWJjerncJd13Womq9yaICRiKHjF/view?usp=sharing",
+        "summary": "সীরাত শাস্ত্রের উৎপত্তি ও ক্রমবিকাশ"
+      },
+      {
+        "id": 5,
+        "date": "2025-05-23",
+        "classType": "Daily Activity",
+        "homework": "Memorize 1 Surah and 1 hadith with explanation",
+        "audioLink": "https://drive.google.com/file/d/1d1lL7Nro7aLaD4W3VJpNrSHKU-kHGLxy/view?usp=sharing",
+        "summary": "---"
+      },
+      {
+        "id": 6,
+        "date": "2025-05-30",
+        "classType": "Seerat",
+        "homework": "Page 31-39 from Serat-ur-Rasool",
+        "audioLink": "https://drive.google.com/file/d/1OJBARq1HyC38Fpw5TvKS7Yt-kEVb81U3/view?usp=sharing",
+        "summary": "তৎকালীন আরব জাতি "
+      },
+      {
+        "id": 7,
+        "date": "2025-06-27",
+        "classType": "Daily Activity",
+        "homework": "Memorize 1 Surah and 1 hadith with explanation",
+        "audioLink": "https://drive.google.com/file/d/1mIKVRI-NI8_ldePpMOv4dfwMp_UcXCtB/view?usp=sharing",
+        "summary": "--"
+      },
+      {
+        "id": 8,
+        "date": "2025-07-05",
+        "classType": "Seerat",
+        "homework": "Page 40-52 from Serat-ur-Rasool",
+        "audioLink": "https://drive.google.com/file/d/1T6VFLeFQjU_8qL0z1b500h_3uYEORsoN/view?usp=sharing",
+        "summary": "মক্কা ও ঈসমাইল বংশ"
+      }
+      
+    ]
+  }
+  
