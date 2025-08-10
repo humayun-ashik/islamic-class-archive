@@ -1,4 +1,4 @@
-# Quran Resources
+
 
 This repository contains a curated list of resources, including blogs, videos, and articles, for each Surah of the Quran.
 

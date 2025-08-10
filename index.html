@@ -6,6 +6,45 @@
     <title>🕊️ Towards Eternity - Islamic Learning Journal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        /* Custom styles for code blocks within the Markdown */
+        .markdown-content pre {
+            background-color: #1f2937; /* Dark gray for code blocks */
+            color: #f9fafb; /* Light text for readability */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        /* Custom styles for tables within the Markdown */
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .markdown-content th, .markdown-content td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+        .markdown-content th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        .markdown-content a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .markdown-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -31,7 +70,7 @@
                         <!-- Link for Class Records -->
                         <a href="#class-records-section" class="nav-link active">
                             <i class="fas fa-file-audio"></i>
-                            <span>Class</span>
+                            <span>Class Archive</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -109,10 +148,13 @@
                     <h2>Quran Resources</h2>
                 </div>
 
-                
-                <div class="empty-state">
-                    <div class="empty-icon">📖</div>
-                    <p>This section is under construction.</p>
+                    <!-- Main Container to hold the content with modern styling -->
+                <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-xl">
+                        <!-- Container for the Markdown content -->
+                    <div id="markdown-container" class="markdown-content prose max-w-none text-gray-800 leading-relaxed">
+                        <!-- Loading message or error message will be displayed here -->
+                        <p class="text-center text-gray-500">Loading content...</p>
+                    </div>
                 </div>
             </section>
 
@@ -156,7 +198,7 @@
             // =====================================================================================================
             const readmeUrl = 'https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md';
 // https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md
-            const container = document.getElementById('quran-resources-section');
+            const container = document.getElementById('markdown-container');
 
             // Function to fetch the README content
             async function fetchReadme() {
