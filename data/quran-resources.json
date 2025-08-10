@@ -1,0 +1,88 @@
+{
+    "quranResources": [
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "1-7",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "কী ব্যাপারে তারা একে অন্যকে জিজ্ঞেস করছে? — আন-নাবা পর্ব ১",
+                    "url": "https://quranerkotha.com/an-naba-1/"
+                }
+            ]
+        },
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "8",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "আমি কি তোমাদেরকে জোড়ায়-জোড়ায় সৃষ্টি করিনি? — আন-নাবা",
+                    "url": "https://quranerkotha.com/an-naba-2/"
+                }
+            ]
+        },
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "9-11",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "আমি কি তোমাদের ঘুমকে একধরনের বিরতি করে দিইনি? —আন-নাবা ৯",
+                    "url": "https://quranerkotha.com/an-naba-3/"
+                }
+            ]
+        },
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "12-13",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "আমি কি তোমাদের উপরে সাতটি সুদৃঢ় সৃষ্টি করিনি —আন-নাবা ১২-১৭",
+                    "url": "https://quranerkotha.com/an-naba-3-2/"
+                }
+            ]
+        },
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "14-16",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "আমি কি আকাশ থেকে অঢেল পানি বর্ষণ করিনি — আন-নাবা ১৪-১৬",
+                    "url": "https://quranerkotha.com/an-naba-5/"
+                }
+            ]
+        },
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "17-30",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "আকাশকে খুলে দেওয়া হবে — আন-নাবা ১৭-৩০",
+                    "url": "https://quranerkotha.com/an-naba-6/"
+                }
+            ]
+        },
+        {
+            "suraNum": 78,
+            "name": "An-Naba",
+            "ayat": "31-36",
+            "resourceType": "Blog Post (Bangla)",
+            "resources": [
+                {
+                    "text": "তোমার রবের পক্ষ থেকে পুরস্কার, এক যথার্থ উপহার —আন-নাবা",
+                    "url": "https://quranerkotha.com/an-naba-7/"
+                }
+            ]
+        }
+    ]
+}

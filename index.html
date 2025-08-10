@@ -6,45 +6,8 @@
     <title>🕊️ Towards Eternity - Islamic Learning Journal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
-        }
-        /* Custom styles for code blocks within the Markdown */
-        .markdown-content pre {
-            background-color: #1f2937; /* Dark gray for code blocks */
-            color: #f9fafb; /* Light text for readability */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        /* Custom styles for tables within the Markdown */
-        .markdown-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        .markdown-content th, .markdown-content td {
-            padding: 0.75rem;
-            text-align: left;
-            border: 1px solid #e5e7eb;
-        }
-        .markdown-content th {
-            background-color: #f3f4f6;
-            font-weight: 600;
-        }
-        .markdown-content a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .markdown-content a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <!-- Include Handlebars.js from a CDN for dynamic templating -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -59,49 +22,17 @@ body {
         </div>
     </header>
 
-    <!-- Main Content Layout -->
-    <div class="main-layout container">
-
-        <!-- Left Navbar -->
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <ul>
-                    <li class="nav-item">
-                        <!-- Link for Class Records -->
-                        <a href="#class-records-section" class="nav-link active">
-                            <i class="fas fa-file-audio"></i>
-                            <span>Class Archive</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Link for Resources -->
-                        <a href="#resources-section" class="nav-link">
-                            <i class="fas fa-book-open"></i>
-                            <span>Class Sources</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Placeholder link for Quran Resources -->
-                        <a href="#quran-resources-section" class="nav-link">
-                            <i class="fas fa-quran"></i>
-                            <span>Quran Resources</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Placeholder link for Hadith Resources -->
-                        <a href="#hadith-resources-section" class="nav-link">
-                            <i class="fas fa-dhikr"></i>
-                            <span>Hadith Resources</span>
-                        </a>
-                    </li>
-                </ul>
+    <main class="main-content">
+        <div class="container">
+            <!-- Navigation -->
+            <nav class="navigation">
+                <a href="#resources-section" class="nav-link active">Resources</a>
+                <a href="#class-records-section" class="nav-link">Class Records</a>
+                <a href="#quran-resources-section" class="nav-link">Quran Resources</a>
             </nav>
-        </aside>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
             <!-- Resources Section -->
-            <section id="resources-section" class="resources-section content-section" style="display: none;">
+            <section id="resources-section" class="resources-section content-section">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-book-open"></i>
@@ -120,7 +51,7 @@ body {
             </section>
 
             <!-- Class Records Section -->
-            <section id="class-records-section" class="class-records-section content-section">
+            <section id="class-records-section" class="class-records-section content-section" style="display: none;">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-file-audio"></i>
@@ -138,97 +69,74 @@ body {
                 </div>
                 <div id="pagination" class="pagination" style="display: none;"></div>
             </section>
-            
-            <!-- New Placeholder Sections -->
-            <section id="quran-resources-section" class="content-section" style="display: none;">
+
+            <!-- New section for Quran Resources -->
+            <section id="quran-resources-section" class="quran-resources-section content-section" style="display: none;">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-quran"></i>
                     </div>
                     <h2>Quran Resources</h2>
                 </div>
-
-                    <!-- Main Container to hold the content with modern styling -->
-                <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-xl">
-                        <!-- Container for the Markdown content -->
-                    <div id="markdown-container" class="markdown-content prose max-w-none text-gray-800 leading-relaxed">
-                        <!-- Loading message or error message will be displayed here -->
-                        <p class="text-center text-gray-500">Loading content...</p>
-                    </div>
+                <!-- Search bar and button -->
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search by sura, ayat, or resource text..." class="search-input">
+                    <button id="search-button" class="search-button">Search</button>
+                </div>
+                <div id="quran-resources-content" class="quran-resources-content">
+                    <p class="text-center text-gray-400">Loading resources...</p>
+                </div>
+                <div id="quran-resources-empty" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📖</div>
+                    <p>No Quran resources found.</p>
                 </div>
             </section>
+        </div>
+    </main>
 
-            <section id="hadith-resources-section" class="content-section" style="display: none;">
-                <div class="section-header">
-                    <div class="icon-container">
-                        <i class="fas fa-dhikr"></i>
-                    </div>
-                    <h2>Hadith Resources</h2>
-                </div>
-                <div class="empty-state">
-                    <div class="empty-icon">📜</div>
-                    <p>This section is under construction.</p>
-                </div>
-            </section>
-        </main>
-    </div>
-
+    <!-- The Handlebars template is defined here inside a script tag -->
+    <script id="quran-resources-template" type="text/x-handlebars-template">
+        {{#if quranResources.length}}
+        <div class="resources-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sura #</th>
+                        <th>Name</th>
+                        <th>Ayat</th>
+                        <th>Resource Type</th>
+                        <th>Resources</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each quranResources}}
+                    <tr>
+                        <td>{{suraNum}}</td>
+                        <td>{{name}}</td>
+                        <td>{{ayat}}</td>
+                        <td>{{resourceType}}</td>
+                        <td>
+                            {{#each resources}}
+                                <a href="{{url}}" class="block resource-link" target="_blank">{{text}}</a>
+                            {{/each}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <p id="no-results" class="empty-state" >No results found.</p>
+        {{/if}}
+    </script>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Humayun Ahmed Ashik. All rights reserved.</p>
         </div>
     </footer>
-
+    
     <script src="script.js"></script>
-    <!-- Main Container to hold the content with modern styling -->
-
-
-    <!-- Script to convert Markdown to HTML -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // =====================================================================================================
-            // IMPORTANT: You must replace this placeholder URL with the actual raw URL of your README.md file.
-            // How to get the URL:
-            // 1. Go to your GitHub repository and open the README.md file.
-            // 2. Click the "Raw" button in the top-right of the file view.
-            // 3. Copy the URL from your browser's address bar.
-            // =====================================================================================================
-            const readmeUrl = 'https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md';
-// https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md
-            const container = document.getElementById('markdown-container');
-
-            // Function to fetch the README content
-            async function fetchReadme() {
-                try {
-                    const response = await fetch(readmeUrl);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    const markdownText = await response.text();
-                    
-                    // Convert Markdown to HTML using marked.js
-                    container.innerHTML = marked.parse(markdownText);
-                } catch (error) {
-                    // Log the specific URL that failed to help with debugging
-                    console.error('Error fetching the README file:', error);
-                    console.error('The URL that failed was:', readmeUrl);
-                    container.innerHTML = `
-                        <div class="text-center p-8 bg-red-100 rounded-lg">
-                            <p class="font-bold text-red-600 mb-2">Failed to load content.</p>
-                            <p class="text-red-500">
-                                It looks like there was an issue fetching the README file. <br>
-                                Please make sure you have replaced the placeholder URL in the code with the correct raw URL for your GitHub file.
-                            </p>
-                        </div>
-                    `;
-                }
-            }
-
-            fetchReadme();
-        });
-    </script>
 </body>
 </html>
