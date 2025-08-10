@@ -6,8 +6,6 @@
     <title>🕊️ Towards Eternity - Islamic Learning Journal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Include the Marked.js library to parse Markdown content -->
-
 </head>
 <body>
     <!-- Header -->
@@ -97,8 +95,11 @@
     <!-- Link to your existing script file -->
     <script src="script.js"></script>
 
-    <!-- New script block to handle README.md fetching and navigation -->
+    <!-- Include the Marked.js library to parse Markdown content -->
+    <!-- Placing it here ensures it's loaded before our custom script uses it. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
+
+    <!-- New script block to handle README.md fetching and navigation -->
     <script>
         // URL for the raw README.md content on GitHub
         const README_URL = "https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md";

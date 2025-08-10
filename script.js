@@ -11,8 +11,8 @@ const itemsPerPage = 5
 document.addEventListener("DOMContentLoaded", () => {
   loadResources()
   loadClassRecords()
-  loadQuranResources()
-  setupNavigation()
+  //loadQuranResources()
+  //setupNavigation()
 })
 
 // Load resources from JSON

@@ -1,428 +1,428 @@
+/*
+    CSS for the Islamic Learning Journal
+    Author: Humayun Ahmed Ashik
+*/
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-    color: #334155;
-    background-color: #ffffff;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  /* Header Styles */
-  .header {
-    background: linear-gradient(to right, #ecfdf5, #f0fdfa);
-    border-bottom: 1px solid #e2e8f0;
-    padding: 2rem 0;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #334155;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(to right, #ecfdf5, #f0fdfa);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 2rem 0;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #047857, #0f766e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.motto {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.arabic-text {
+  font-family: "Amiri", serif;
+  font-size: 2rem;
+  color: #047857;
+  margin-bottom: 0.5rem;
+}
+
+.translation {
+  font-style: italic;
+  color: #64748b;
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem 0;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.nav-link {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Rounded corners */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0 0.5rem;
+}
+
+.nav-link:hover {
+  color: #047857;
+  background-color: #f0fdfa;
+}
+
+.nav-link.active {
+  background-color: #047857;
+  color: white;
+  pointer-events: none; /* Disable clicking on the active link */
+}
+
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: #047857;
+}
+
+.section-header .icon-container {
+  background-color: #d1fae5;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  margin-right: 1rem;
+}
+
+.section-header i {
+  font-size: 1.25rem;
+}
+
+.section-header h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+/* Resources Section */
+.resources-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.resource-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.card-writer {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background-color: #059669;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.card-link:hover {
+  background-color: #047857;
+}
+
+/* Class Records Section */
+.class-record-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.class-record-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.record-date {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.record-type {
+  background-color: #d1fae5;
+  color: #047857;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.record-summary {
+  color: #334155;
+  margin-bottom: 1rem;
+}
+
+.record-homework {
+  color: #475569;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.audio-link {
+  display: inline-flex;
+  align-items: center;
+  color: #059669;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.audio-link:hover {
+  color: #047857;
+}
+
+.audio-link i {
+  margin-right: 0.5rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  background-color: transparent;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f3f4f6;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background-color: #059669;
+  color: white;
+  border-color: #059669;
+}
+
+.pagination .page-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: #64748b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .main-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    background: linear-gradient(to right, #047857, #0f766e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.75rem;
-  }
-  
-  .subtitle {
-    text-align: center;
-    color: #64748b;
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  
-  .motto {
-    text-align: center;
-    color: #166534;
-    font-size: 1rem;
-    font-style: italic;
-  }
-  
-  .motto .arabic-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  /* Navigation */
-  .navigation {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 1rem;
-    gap: 1rem;
-  }
-  
-  .navigation .nav-link {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #475569;
-    font-weight: 500;
-    border-radius: 9999px;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .navigation .nav-link:hover {
-    background-color: #f1f5f9;
-  }
-  
-  .navigation .nav-link.active {
-    background-color: #047857;
-    color: white;
-  }
-  
-  /* Main Content */
-  .main-content {
-    padding: 2rem 0;
-  }
-  
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-  
-  .section-header .icon-container {
-    background-color: #ecfdf5;
-    color: #047857;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    font-size: 1.25rem;
-  }
-  
-  .section-header h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1e293b;
-  }
-  
-  /* Resources Grid */
-  .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .resource-card {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .resource-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  .resource-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-  }
-  
-  .resource-writer {
-    font-size: 0.875rem;
-    color: #64748b;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-  }
-  
-  /* Class Records */
-  .class-records {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .record-card {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .record-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  .record-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .record-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .record-date {
-    font-size: 0.875rem;
-    color: #475569;
-    font-weight: 500;
-  }
-  
-  .record-badges {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-  
-  .badge-daily {
-    background-color: #d1fae5;
-    color: #065f46;
-  }
-  
-  .badge-seerat {
-    background-color: #dbeafe;
-    color: #1e40af;
-  }
-  
-  .record-content {
-    border-top: 1px solid #e2e8f0;
-    padding-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .content-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-  }
-  
-  .content-text {
-    font-size: 0.9375rem;
-    color: #475569;
-  }
-  
-  /* Updated audio-section styling */
-  .audio-section {
-    text-align: left;
-    width: 100%;
-  }
-  
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.625rem 1.25rem;
-    border-radius: 0.5rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .btn-primary {
-    background-color: #059669;
-    color: white;
-  }
-  
-  .btn-primary:hover {
-    background-color: #04785e;
-  }
-  
-  /* Specific styling for the audio section button */
-  .audio-section .btn {
-      background-color: #10b981;
-      color: white;
-      border: none;
-      padding: 0.625rem 2rem;
-      border-radius: 9999px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-  
-  .audio-section .btn:hover {
-      background-color: #059669;
+    font-size: 2rem;
   }
 
-  .resource-card .btn {
-    background-color: #d1fae5;
-    color: #065f46;
-    border: 1px solid #065f46;
+  .subtitle {
+    font-size: 1rem;
   }
-  
-  .resource-card .btn:hover {
-    background-color: #065f46;
-    color: white;
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
-  
-  /* Pagination */
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
+
+  .resources-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .pagination button {
-    padding: 0.625rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-    background-color: #f8fafc;
-    color: #475569;
-    font-weight: 500;
-    cursor: pointer;
+
+  .navigation {
+    flex-direction: column;
   }
-  
-  .pagination button:hover:not(:disabled) {
-    background-color: #f3f4f6;
+
+  .nav-link {
+    margin: 0.25rem 0;
+    width: 100%;
   }
-  
-  .pagination button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+
+  .section-header h2 {
+    font-size: 1.5rem;
   }
-  
-  .pagination button.active {
-    background-color: #059669;
-    color: white;
-    border-color: #059669;
-  }
-  
-  .pagination .page-number {
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Empty State */
-  .empty-state {
-    text-align: center;
-    padding: 3rem 0;
-  }
-  
-  .empty-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-  
-  .empty-state p {
-    color: #64748b;
-    font-size: 1.125rem;
-  }
-  
-  /* Footer */
-  .footer {
-    border-top: 1px solid #e2e8f0;
-    margin-top: 4rem;
-    padding: 1.5rem 0;
-    text-align: center;
-    color: #64748b;
-  }
-  
-  /* New CSS for Markdown content */
-  .readme-content {
-      padding: 1rem;
-      background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 0.75rem;
-  }
-  
-  .readme-content h1, .readme-content h2, .readme-content h3 {
-      font-weight: bold;
-      color: #1e293b;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-  }
-  
-  .readme-content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-  }
-  
-  .readme-content th, .readme-content td {
-      border: 1px solid #e2e8f0;
-      padding: 0.75rem;
-      text-align: left;
-  }
-  
-  .readme-content th {
-      background-color: #f1f5f9;
-      font-weight: 600;
-  }
-  
-  .readme-content tr:nth-child(even) {
-      background-color: #f8fafc;
-  }
-  
-  .readme-content a {
-      color: #059669;
-      text-decoration: none;
-      transition: color 0.2s ease-in-out;
-  }
-  
-  .readme-content a:hover {
-      text-decoration: underline;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .main-title {
-      font-size: 2rem;
-    }
-  
-    .subtitle {
-      font-size: 1rem;
-    }
-  
-    .navigation {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .resources-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .record-header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
+}
+
+/* New styles for README.md content */
+.readme-content h1, .readme-content h2, .readme-content h3 {
+  font-weight: bold;
+  color: #047857;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ecfdf5;
+  padding-bottom: 0.5rem;
+}
+
+.readme-content h1 {
+  font-size: 2rem;
+}
+
+.readme-content h2 {
+  font-size: 1.5rem;
+}
+
+.readme-content h3 {
+  font-size: 1.25rem;
+}
+
+.readme-content p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.readme-content ul, .readme-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.readme-content li {
+  margin-bottom: 0.5rem;
+}
+
+.readme-content a {
+  color: #059669;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.readme-content a:hover {
+  color: #047857;
+}
+
+.readme-content code {
+  background-color: #f1f5f9;
+  color: #059669;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+.readme-content pre {
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.readme-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.readme-content th, .readme-content td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+}
+
+.readme-content th {
+  background-color: #ecfdf5;
+  font-weight: bold;
+  color: #047857;
+}
