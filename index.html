@@ -20,17 +20,49 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <div class="container">
-            <!-- Navigation -->
-            <nav class="navigation">
-                <a href="#resources-section" class="nav-link active">Resources</a>
-                <a href="#class-records-section" class="nav-link">Class Records</a>
-                <a href="#quran-resources-section" class="nav-link">Quran Resources</a>
-            </nav>
+    <!-- Main Content Layout -->
+    <div class="main-layout container">
 
+        <!-- Left Navbar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <!-- Link for Class Records -->
+                        <a href="#class-records-section" class="nav-link active">
+                            <i class="fas fa-file-audio"></i>
+                            <span>Class</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Link for Resources -->
+                        <a href="#resources-section" class="nav-link">
+                            <i class="fas fa-book-open"></i>
+                            <span>Class Sources</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Placeholder link for Quran Resources -->
+                        <a href="#quran-resources-section" class="nav-link">
+                            <i class="fas fa-quran"></i>
+                            <span>Quran Resources</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Placeholder link for Hadith Resources -->
+                        <a href="#hadith-resources-section" class="nav-link">
+                            <i class="fas fa-dhikr"></i>
+                            <span>Hadith Resources</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
             <!-- Resources Section -->
-            <section id="resources-section" class="resources-section content-section">
+            <section id="resources-section" class="resources-section content-section" style="display: none;">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-book-open"></i>
@@ -49,7 +81,7 @@
             </section>
 
             <!-- Class Records Section -->
-            <section id="class-records-section" class="class-records-section content-section" style="display: none;">
+            <section id="class-records-section" class="class-records-section content-section">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-file-audio"></i>
@@ -67,23 +99,37 @@
                 </div>
                 <div id="pagination" class="pagination" style="display: none;"></div>
             </section>
-
-            <!-- New section for Quran Resources -->
-            <section id="quran-resources-section" class="quran-resources-section content-section" style="display: none;">
+            
+            <!-- New Placeholder Sections -->
+            <section id="quran-resources-section" class="content-section" style="display: none;">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-quran"></i>
                     </div>
                     <h2>Quran Resources</h2>
                 </div>
-                <div id="quran-resources-content" class="quran-resources-content"></div>
-                <div id="quran-resources-empty" class="empty-state" style="display: none;">
+
+                
+                <div class="empty-state">
                     <div class="empty-icon">📖</div>
-                    <p>No Quran resources found.</p>
+                    <p>This section is under construction.</p>
                 </div>
             </section>
-        </div>
-    </main>
+
+            <section id="hadith-resources-section" class="content-section" style="display: none;">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <i class="fas fa-dhikr"></i>
+                    </div>
+                    <h2>Hadith Resources</h2>
+                </div>
+                <div class="empty-state">
+                    <div class="empty-icon">📜</div>
+                    <p>This section is under construction.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -91,83 +137,56 @@
             <p>&copy; 2025 Humayun Ahmed Ashik. All rights reserved.</p>
         </div>
     </footer>
-    
-    <!-- Link to your existing script file -->
+
     <script src="script.js"></script>
+    <!-- Main Container to hold the content with modern styling -->
 
-    <!-- Include the Marked.js library to parse Markdown content -->
-    <!-- Placing it here ensures it's loaded before our custom script uses it. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
 
-    <!-- New script block to handle README.md fetching and navigation -->
+    <!-- Script to convert Markdown to HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <script>
-        // URL for the raw README.md content on GitHub
-        const README_URL = "https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md";
+        document.addEventListener('DOMContentLoaded', () => {
+            // =====================================================================================================
+            // IMPORTANT: You must replace this placeholder URL with the actual raw URL of your README.md file.
+            // How to get the URL:
+            // 1. Go to your GitHub repository and open the README.md file.
+            // 2. Click the "Raw" button in the top-right of the file view.
+            // 3. Copy the URL from your browser's address bar.
+            // =====================================================================================================
+            const readmeUrl = 'https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md';
+// https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md
+            const container = document.getElementById('quran-resources-section');
 
-        // Initialize the new features on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            loadQuranResources()
-            setupNavigation()
-        })
-
-        // Load Quran resources by fetching the README.md from the provided URL
-        async function loadQuranResources() {
-            const readmeContentDiv = document.getElementById("quran-resources-content")
-            const emptyElement = document.getElementById("quran-resources-empty")
-            
-            try {
-                const response = await fetch(README_URL)
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+            // Function to fetch the README content
+            async function fetchReadme() {
+                try {
+                    const response = await fetch(readmeUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const markdownText = await response.text();
+                    
+                    // Convert Markdown to HTML using marked.js
+                    container.innerHTML = marked.parse(markdownText);
+                } catch (error) {
+                    // Log the specific URL that failed to help with debugging
+                    console.error('Error fetching the README file:', error);
+                    console.error('The URL that failed was:', readmeUrl);
+                    container.innerHTML = `
+                        <div class="text-center p-8 bg-red-100 rounded-lg">
+                            <p class="font-bold text-red-600 mb-2">Failed to load content.</p>
+                            <p class="text-red-500">
+                                It looks like there was an issue fetching the README file. <br>
+                                Please make sure you have replaced the placeholder URL in the code with the correct raw URL for your GitHub file.
+                            </p>
+                        </div>
+                    `;
                 }
-                const markdown = await response.text()
-                
-                if (markdown.trim() === "") {
-                    emptyElement.style.display = "block"
-                    readmeContentDiv.innerHTML = ""
-                } else {
-                    // Convert markdown to HTML using marked.js and inject it
-                    const html = marked.parse(markdown)
-                    readmeContentDiv.innerHTML = `<div class="readme-content">${html}</div>`
-                    emptyElement.style.display = "none"
-                }
-            } catch (error) {
-                console.error("Error loading Quran resources:", error)
-                emptyElement.style.display = "block"
-                emptyElement.innerHTML = `
-                    <div class="empty-icon">⚠️</div>
-                    <p>Error loading resources from GitHub. Please check the URL.</p>
-                `
             }
-        }
 
-        // Setup navigation logic
-        function setupNavigation() {
-            const navLinks = document.querySelectorAll(".nav-link")
-            const sections = document.querySelectorAll(".content-section")
-            
-            navLinks.forEach(link => {
-                link.addEventListener("click", (e) => {
-                    e.preventDefault()
-                    const targetId = e.target.getAttribute("href").substring(1)
-            
-                    // Hide all sections and remove active class from all links
-                    sections.forEach(section => {
-                        section.style.display = "none"
-                    })
-                    navLinks.forEach(navLink => {
-                        navLink.classList.remove("active")
-                    })
-            
-                    // Show the target section and add active class to the clicked link
-                    document.getElementById(targetId).style.display = "block"
-                    e.target.classList.add("active")
-                })
-            })
-            
-            // Initially show the first section
-            document.getElementById("resources-section").style.display = "block"
-        }
+            fetchReadme();
+        });
     </script>
 </body>
 </html>
