@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Include the Marked.js library to parse Markdown content -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
+
 </head>
 <body>
     <!-- Header -->
@@ -94,6 +94,79 @@
         </div>
     </footer>
     
+    <!-- Link to your existing script file -->
     <script src="script.js"></script>
+
+    <!-- New script block to handle README.md fetching and navigation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
+    <script>
+        // URL for the raw README.md content on GitHub
+        const README_URL = "https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md";
+
+        // Initialize the new features on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            loadQuranResources()
+            setupNavigation()
+        })
+
+        // Load Quran resources by fetching the README.md from the provided URL
+        async function loadQuranResources() {
+            const readmeContentDiv = document.getElementById("quran-resources-content")
+            const emptyElement = document.getElementById("quran-resources-empty")
+            
+            try {
+                const response = await fetch(README_URL)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const markdown = await response.text()
+                
+                if (markdown.trim() === "") {
+                    emptyElement.style.display = "block"
+                    readmeContentDiv.innerHTML = ""
+                } else {
+                    // Convert markdown to HTML using marked.js and inject it
+                    const html = marked.parse(markdown)
+                    readmeContentDiv.innerHTML = `<div class="readme-content">${html}</div>`
+                    emptyElement.style.display = "none"
+                }
+            } catch (error) {
+                console.error("Error loading Quran resources:", error)
+                emptyElement.style.display = "block"
+                emptyElement.innerHTML = `
+                    <div class="empty-icon">⚠️</div>
+                    <p>Error loading resources from GitHub. Please check the URL.</p>
+                `
+            }
+        }
+
+        // Setup navigation logic
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll(".nav-link")
+            const sections = document.querySelectorAll(".content-section")
+            
+            navLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    const targetId = e.target.getAttribute("href").substring(1)
+            
+                    // Hide all sections and remove active class from all links
+                    sections.forEach(section => {
+                        section.style.display = "none"
+                    })
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove("active")
+                    })
+            
+                    // Show the target section and add active class to the clicked link
+                    document.getElementById(targetId).style.display = "block"
+                    e.target.classList.add("active")
+                })
+            })
+            
+            // Initially show the first section
+            document.getElementById("resources-section").style.display = "block"
+        }
+    </script>
 </body>
 </html>

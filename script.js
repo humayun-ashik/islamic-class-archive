@@ -2,7 +2,10 @@
 let classRecords = []
 let resources = []
 let currentPage = 1
-const itemsPerPage = 10
+const itemsPerPage = 5
+
+// URL for the raw README.md content on GitHub
+//const README_URL = "https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md";
 
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
@@ -44,12 +47,9 @@ async function loadClassRecords() {
 async function loadQuranResources() {
   const readmeContentDiv = document.getElementById("quran-resources-content")
   const emptyElement = document.getElementById("quran-resources-empty")
-
-  // Use the raw GitHub URL for the README.md file
-  const githubReadmeUrl = "https://raw.githubusercontent.com/humayun-ashik/islamic-class-archive/main/README.md";
-
+  
   try {
-    const response = await fetch(githubReadmeUrl)
+    const response = await fetch(README_URL)
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -57,6 +57,7 @@ async function loadQuranResources() {
     
     if (markdown.trim() === "") {
       emptyElement.style.display = "block"
+      readmeContentDiv.innerHTML = ""
     } else {
       // Convert markdown to HTML using marked.js and inject it
       const html = marked.parse(markdown)
