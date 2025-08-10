@@ -2,13 +2,63 @@
 let classRecords = []
 let resources = []
 let currentPage = 1
-const itemsPerPage = 10
+// Changed to 5 items per page as requested
+const itemsPerPage = 5
 
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
-  loadResources()
-  loadClassRecords()
+    // Call the function to set up the interactive navigation
+    setupNavigation();
+
+    // Load data for the content sections
+    loadResources();
+    loadClassRecords();
+    loadQuranResources();
 })
+
+// New function to handle navigation and content display
+function setupNavigation() {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const contentSections = document.querySelectorAll(".content-section");
+
+    // Hide all content sections initially
+    contentSections.forEach(section => {
+        section.style.display = "none";
+    });
+
+    // Show the first content section by default
+    if (contentSections.length > 0) {
+        contentSections[0].style.display = "block";
+    }
+
+    // Add click event listeners to each navigation link
+    navLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            // Prevent the default anchor behavior (jumping to the section)
+            event.preventDefault();
+
+            // Remove 'active' class from all links
+            navLinks.forEach(item => item.classList.remove("active"));
+
+            // Add 'active' class to the clicked link
+            event.currentTarget.classList.add("active");
+
+            // Get the target section's ID from the href attribute
+            const targetId = event.currentTarget.getAttribute("href");
+
+            // Hide all content sections
+            contentSections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            // Show the target content section
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.style.display = "block";
+            }
+        });
+    });
+}
 
 // Load resources from JSON
 async function loadResources() {
@@ -38,6 +88,31 @@ async function loadClassRecords() {
   }
 }
 
+// Load Quran resources from README.md
+async function loadQuranResources() {
+    try {
+        const response = await fetch("README.md");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const markdown = await response.text();
+        document.getElementById("quran-resources-content").innerHTML = `
+            <div class="readme-content">
+                ${marked.parse(markdown)}
+            </div>
+        `;
+        document.getElementById("quran-resources-empty").style.display = 'none';
+    } catch (error) {
+        console.error("Error loading README.md:", error);
+        document.getElementById("quran-resources-empty").style.display = 'block';
+        document.getElementById("quran-resources-empty").innerHTML = `
+            <div class="empty-icon">⚠️</div>
+            <p>Error loading Quran resources. Please check your data files.</p>
+        `;
+    }
+}
+
+
 // Display resources
 function displayResources() {
   const loadingElement = document.getElementById("resources-loading")
@@ -54,20 +129,19 @@ function displayResources() {
   gridElement.innerHTML = resources
     .map(
       (resource) => `
-        <div class="resource-card" onclick="openLink('${resource.driveLink}')">
+        <div class="resource-card">
             <h3 class="resource-title">${resource.title}</h3>
-            <p class="resource-writer">by ${resource.writer}</p>
-            <button class="btn">
-                <i class="fas fa-external-link-alt"></i>
-                Open
+            <p class="resource-writer">${resource.writer}</p>
+            <button class="btn" onclick="openLink('${resource.driveLink}')">
+                <i class="fas fa-external-link-alt"></i> Access
             </button>
         </div>
-    `,
+    `
     )
     .join("")
 }
 
-// Display class records with pagination
+// Display class records for the current page
 function displayClassRecords() {
   const loadingElement = document.getElementById("records-loading")
   const recordsElement = document.getElementById("class-records")
@@ -77,77 +151,89 @@ function displayClassRecords() {
 
   if (classRecords.length === 0) {
     emptyElement.style.display = "block"
+    document.getElementById("pagination").style.display = "none"
     return
   }
 
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
-  const currentRecords = classRecords.slice(startIndex, endIndex)
+  document.getElementById("pagination").style.display = "flex"
 
-  recordsElement.innerHTML = currentRecords
+  const start = (currentPage - 1) * itemsPerPage
+  const end = start + itemsPerPage
+  const paginatedRecords = classRecords.slice(start, end)
+
+  recordsElement.innerHTML = paginatedRecords
     .map(
       (record) => `
         <div class="record-card">
             <div class="record-header">
                 <div class="record-meta">
                     <div class="record-date">
-                        <i class="fas fa-calendar"></i>
-                        ${formatDate(record.date)}
+                        <i class="fas fa-calendar-alt"></i> ${formatDate(
+                          record.date
+                        )}
                     </div>
-                    <span class="badge ${record.classType === "Daily Activity" ? "badge-daily" : "badge-seerat"}">
-                        ${record.classType}
-                    </span>
                 </div>
-                <button class="btn" onclick="openLink('${record.audioLink}')">
-                    <i class="fas fa-external-link-alt"></i>
-                    Audio
-                </button>
+                <div class="record-badges">
+                    <span class="badge ${
+                      record.classType === "Daily Activity" ? "badge-daily" : "badge-seerat"
+                    }">${record.classType}</span>
+                </div>
             </div>
             <div class="record-content">
-                <div class="content-section homework-section">
-                    <h4 class="content-title">📝 Homework</h4>
-                    <p class="content-text">${record.homework}</p>
-                </div>
-                <div class="content-section summary-section">
-                    <h4 class="content-title">📚 Class Summary</h4>
+                <div class="summary-section">
+                    <p class="content-title"><i class="fas fa-book-reader"></i> Summary</p>
                     <p class="content-text">${record.summary}</p>
                 </div>
+                <div class="homework-section">
+                    <p class="content-title"><i class="fas fa-tasks"></i> Homework</p>
+                    <p class="content-text">${record.homework}</p>
+                </div>
+                ${record.audioLink && record.audioLink !== 'N/A' ? `
+                    <div class="audio-section">
+                        <p class="content-title"><i class="fas fa-headphones"></i> Class Record</p>
+                        <button class="btn" onclick="playAudio('${record.audioLink}')">
+                            <i class="fas fa-play"></i> Listen
+                        </button>
+                    </div>
+                ` : ''}
             </div>
         </div>
-    `,
+    `
     )
     .join("")
 }
 
-// Setup pagination
+// Setup pagination buttons
 function setupPagination() {
-  const totalPages = Math.ceil(classRecords.length / itemsPerPage)
   const paginationElement = document.getElementById("pagination")
+  const totalPages = Math.ceil(classRecords.length / itemsPerPage)
 
   if (totalPages <= 1) {
     paginationElement.style.display = "none"
     return
   }
 
-  paginationElement.style.display = "flex"
-
-  let paginationHTML = `
-        <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}>
+  let paginationHTML = ""
+  paginationHTML += `
+        <button onclick="changePage(${currentPage - 1})" ${
+    currentPage === 1 ? 'disabled="true"' : ""
+  }>
             <i class="fas fa-chevron-left"></i> Previous
         </button>
     `
 
-  // Page numbers
   for (let i = 1; i <= totalPages; i++) {
     paginationHTML += `
-            <button class="page-number ${i === currentPage ? "active" : ""}" onclick="changePage(${i})">
-                ${i}
-            </button>
+            <button class="page-number ${
+              i === currentPage ? "active" : ""
+            }" onclick="changePage(${i})">${i}</button>
         `
   }
 
   paginationHTML += `
-        <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}>
+        <button onclick="changePage(${currentPage + 1})" ${
+    currentPage === totalPages ? 'disabled="true"' : ""
+  }>
             Next <i class="fas fa-chevron-right"></i>
         </button>
     `
@@ -186,6 +272,13 @@ function openLink(url) {
   window.open(url, "_blank")
 }
 
+// Play audio link
+function playAudio(url) {
+    if (url && url !== 'N/A') {
+        window.open(url, "_blank");
+    }
+}
+
 // Show error states
 function showResourcesError() {
   document.getElementById("resources-loading").style.display = "none"
@@ -204,3 +297,4 @@ function showRecordsError() {
         <p>Error loading class records. Please check your data files.</p>
     `
 }
+

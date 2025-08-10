@@ -6,6 +6,8 @@
     <title>🕊️ Towards Eternity - Islamic Learning Journal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Include the Marked.js library to parse Markdown content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,8 +24,15 @@
 
     <main class="main-content">
         <div class="container">
+            <!-- Navigation -->
+            <nav class="navigation">
+                <a href="#resources-section" class="nav-link active">Resources</a>
+                <a href="#class-records-section" class="nav-link">Class Records</a>
+                <a href="#quran-resources-section" class="nav-link">Quran Resources</a>
+            </nav>
+
             <!-- Resources Section -->
-            <section class="resources-section">
+            <section id="resources-section" class="resources-section content-section">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-book-open"></i>
@@ -42,7 +51,7 @@
             </section>
 
             <!-- Class Records Section -->
-            <section class="class-records-section">
+            <section id="class-records-section" class="class-records-section content-section">
                 <div class="section-header">
                     <div class="icon-container">
                         <i class="fas fa-file-audio"></i>
@@ -59,6 +68,21 @@
                     <p>No class records found.</p>
                 </div>
                 <div id="pagination" class="pagination" style="display: none;"></div>
+            </section>
+
+            <!-- New section for Quran Resources -->
+            <section id="quran-resources-section" class="quran-resources-section content-section">
+                <div class="section-header">
+                    <div class="icon-container">
+                        <i class="fas fa-quran"></i>
+                    </div>
+                    <h2>Quran Resources</h2>
+                </div>
+                <div id="quran-resources-content" class="quran-resources-content"></div>
+                <div id="quran-resources-empty" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📖</div>
+                    <p>No Quran resources found.</p>
+                </div>
             </section>
         </div>
     </main>

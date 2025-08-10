@@ -5,4 +5,3 @@ describe('Application Tests', () => {
         assert.strictEqual(1 + 1, 2);
     });
 });
-
