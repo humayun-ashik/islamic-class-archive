@@ -223,6 +223,9 @@ body {
 .class-record-card .class-type.seerat {
     background-color: #e9f086; /* Updated color */
 }
+.class-record-card .class-type.ramadan {
+    background-color: #5fdb91; /* Updated color */
+}
 
 .class-record-card .homework,
 .class-record-card .summary {
