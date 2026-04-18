@@ -127,10 +127,66 @@
         "homework": "Prophetic ramadan practices",
         "audioLink": "https://drive.google.com/file/d/1wtql5BOL8s-wUHSE7yiPW9x8tKPhnPgP/view?usp=sharing",
         "summary": "Discussion on prophetic ramadan practices, how to make the most of this blessed month, importance of fasting and other acts of worship during ramadan"
-      }
+      },
+      {
+        "id": 17,
+        "date": "2026-02-07",
+        "classType": "Seerat",
+        "homework": "Page(113-125) from Seeratur Rasul(SAW) by Dr. Galib",
+        "audioLink": "https://drive.google.com/file/d/1cTXDCLTRuFh7JA11cjhvx7nxO3gafWFW/view?usp=sharing",
+        "summary": "Discussion on pages 113-125"
+      },
+      {
+        "id": 18,
+        "date": "2026-02-14",
+        "classType": "Ramadan",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1m1dl8n501okpREWrb0kNR7AUuCfMIXOK/view?usp=sharing",
+        "summary": "Prophetic ramadan practices"
+      },
       
+      {
+        "id": 19,
+        "date": "2026-02-18",
+        "classType": "Ramadan",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1wtql5BOL8s-wUHSE7yiPW9x8tKPhnPgP/view?usp=sharing",
+        "summary": "Prophetic ramadan practices"
+      },
 
+      {
+        "id": 20,
+        "date": "2026-03-07",
+        "classType": "Ramadan",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1EvpV4QvrRZXxfMskLNXFp2WZ1bn-u_5J/view?usp=sharing",
+        "summary": "Prophetic ramadan practices"
+      },
 
+      {
+        "id": 21,
+        "date": "2026-03-14",
+        "classType": "Ramadan",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1A2LonprZAnevJx--TPkmy-GNKjSY3mFz/view?usp=sharing",
+        "summary": "Prophetic ramadan practices"
+      },
+      {
+        "id": 22,
+        "date": "2026-04-04",
+        "classType": "Seerat",
+        "homework": "Page(126-139) from Seeratur Rasul(SAW) by Dr. Galib",
+        "audioLink": "https://drive.google.com/file/d/1Xvlq5Tl-m9DQnG_HYyPbTvXdi3nlEnkq/view?usp=sharing",
+        "summary": "Discussion on pages 126-139"
+      },
+      {
+        "id": 23,
+        "date": "2026-04-11",
+        "classType": "Daily Activity",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/16mulLhwjwfCHGC0xRASxxeGYWfsZpWI9/view?usp=sharing",
+        "summary": "Discussion on Sabr"
+      }
       
     ]
   }
