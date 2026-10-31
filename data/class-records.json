@@ -186,8 +186,39 @@
         "homework": "N/A",
         "audioLink": "https://drive.google.com/file/d/16mulLhwjwfCHGC0xRASxxeGYWfsZpWI9/view?usp=sharing",
         "summary": "Discussion on Sabr"
+      },
+      {
+        "id": 24,
+        "date": "2026-07-04",
+        "classType": "Daily Activity",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1nkJ4tRV-MlqYyC3DtyFNUB5Jpj3Yy54O/view?usp=sharing",
+        "summary": "General discussion"
+      },
+      {
+        "id": 25,
+        "date": "2026-08-08",
+        "classType": "Seerat",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1xGAzzzjk-WzhSToVI1Dqruy5I4QDW4m0/view?usp=sharing",
+        "summary": "Seerat class"
+      },
+      {
+        "id": 26,
+        "date": "2026-08-15",
+        "classType": "Daily Activity",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1PgXvNOmn2_w32mF-tLDLpoaS12jTfBe7/view?usp=sharing",
+        "summary": "General discussion"
+      },
+      {
+        "id": 27,
+        "date": "2026-08-29",
+        "classType": "Seerat",
+        "homework": "N/A",
+        "audioLink": "https://drive.google.com/file/d/1z7bUylMHADlrdEtYNbdT7MxbEo5bqohR/view?usp=sharing",
+        "summary": "Seerat class"
       }
-      
     ]
   }
   
